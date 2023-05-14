@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
 
-  devise_for :post_tags
-  devise_for :tags
-  devise_for :bookmarks
-  devise_for :comments
-  devise_for :posts
 # 利用者(ユーザー)用
   devise_for :users,skip: [:passwords], controllers: {
   registrations: "public/registrations",
@@ -31,7 +26,12 @@ scope module: :public do
     get '/users/my_page/edit', to: 'users#edit', as: 'edit_user'
     get 'users/unsubscribe'
     patch 'users/withdraw'
-    resources :users, only: [:create, :index, :update, :destroy]
+    resources :users, only: [:create, :index, :update, :destroy, :show] do
+      member do
+        get 'bookmark_posts'
+        get 'comment_posts'
+      end
+    end
     resources :posts, only: [:new, :create, :index, :show, :edit, :update, :destroy]
   end
 

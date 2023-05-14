@@ -3,15 +3,15 @@
   <%= link_to "マイページ", users_path, class: "nav-link fas fa-user" %>
 </li>
 <li class="nav-item">
-  <%= link_to "投稿一覧", post_path, class: "nav-link fas fa-post" %>
+  <%= link_to "投稿一覧", posts_path, class: "nav-link fas fa-post" %>
 </li>
 <li class="nav-item">
-  <%= link_to "コメント一覧", comments_path, class: "nav-link fas fa-comment" %>
+  <%= link_to "コメント一覧", comment_posts_user_path(current_user), class: "nav-link fas fa-comment" %>
 </li>
 <li class="nav-item">
-  <%= link_to "ブックマーク一覧", bookmarks_path, class: "nav-link fas fa-bookmark" %>
+  <%= link_to "ブックマーク一覧", bookmark_posts_user_path(current_user), class: "nav-link fas fa-bookmark" %>
 </li>
 <li class="nav-item">
-  <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "nav-link fas fa-sign-out-alt" %>
+  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link fas fa-sign-out-alt" %>
 </li>
 </ul>

@@ -17,6 +17,16 @@ class Public::UsersController < ApplicationController
     end
   end
 
+  def bookmark_posts
+    @user = User.find(params[:id])
+    @posts = @user.bookmark_posts
+  end
+
+  def comment_posts
+    @user = User.find(params[:id])
+    @posts = @user.comment_posts
+  end
+
   def delete_verification
     redirect_to root_path
   end

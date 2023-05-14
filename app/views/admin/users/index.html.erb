@@ -1,0 +1,64 @@
+<!--ユーザー一覧-->
+
+<div class="container">
+
+  <div class="row mt-3">
+    <div class="col-md-4 mt-5">
+      <h4 class="text-dark text-center title_bar">ユーザー一覧</h4>
+    </div>
+    <div class="col-md-6 mt-5"></div>
+  </div>
+
+<div class="row mt-5">
+  <div class="col-md-8 offset-md-1">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>会員ID</th>
+          <th>氏名</th>
+          <th>メールアドレス</th>
+          <th>ステータス</th>
+        </tr>
+      </thead>
+
+<tbody>
+  <% @users.each do |user| %>
+    <tr>
+      <td>
+        <!--id-->
+        <%= user.id %>
+      </td>
+
+      <td>
+        <!--name-->
+        <%= link_to admin_user_path(user.id) do %>
+          <%= user.name %>
+        <% end %>
+      </td>
+      <td>
+        <!--email-->
+        <%= user.email %>
+      </td>
+
+      <td>
+        <!--is_deleted-->
+        <% if user.is_deleted == false %>
+          <p class="text-success font-weight-bold">有効</p>
+        <% else %>
+          <p class="text-secondary font-weight-bold">退会</p>
+        <% end %>
+      </td>
+
+    </tr>
+  <% end %>
+
+</tbody>
+    </table>
+
+  </div>
+</div>
+  <div class="row">
+    <div class="col-md-2 mx-auto">
+    </div>
+  </div>
+</div>
