@@ -1,0 +1,24 @@
+<h1>投稿履歴一覧</h1>
+
+<table border="1">
+  <thead>
+    <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+  </thead>
+
+<tbody>
+  <% @posts.each do |posts| %>
+    <% %>
+  <tr>
+    <td><%= link_to post.created_at, admin_post_path(post) %></td>
+    <td><%= post.user.fullname_display %></td>
+    <td><%#= post..sum(:quantity) %></td>
+
+  </tr>
+  <% end %>
+</tbody>
+</table>

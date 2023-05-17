@@ -9,4 +9,9 @@ class User < ApplicationRecord
   has_many :comment_posts, through: :comments, source: :post
   has_many :bookmarks
   has_many :bookmark_posts, through: :bookmarks, source: :post
+
+  # validates :name, presence: true
+  # validates :address, presence: true
+  # validates :email, presence: true
+
 end

@@ -1,0 +1,45 @@
+<!--会員詳細画面(admin)-->
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-4 mt-5">
+      <h4 class="text-dark text-center title_bar"><%= @user.name %>さんの会員詳細</h4>
+    </div>
+    <div class="col-md-1 mt-5"></div>
+    <div class="col-md-5 mt-5"></div>
+  </div>
+
+  <div class="row">
+
+    <div class="col-md-10 offset-md-1">
+      <table class="table table-borderless">
+        <tr><td>会員ID</td><td><%= @user.id %></td></tr>
+
+        <tr><td>氏名</td><td><%= @user.name %></td></tr>
+
+        <tr><td>住所</td><td><%= @user.address %></td></tr>
+
+        <tr><td>メールアドレス</td><td><%= @user.email %></td></tr>
+
+        <tr>
+          <td>会員ステータス</td>
+          <td>
+            <% if @user.is_deleted == false %>
+              <p class="text-success font-weight-bold">有効</p>
+            <% else %>
+              <p class="text-secondary font-weight-bold">退会</p>
+            <% end %>
+          </td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td>
+            <%= link_to "編集する", edit_admin_user_path(@user.id), class:"btn btn-success mr-5 w-25" %>
+            <%= link_to "投稿履歴一覧を見る", admin_path, class:"btn btn-primary" %>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

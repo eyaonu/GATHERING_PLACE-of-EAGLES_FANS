@@ -58,7 +58,7 @@ class Public::UsersController < ApplicationController
 
   private
 
-  def customer_params
+  def user_params
     params.require(:user).permit(:email,
                                  :name,
                                  :address,
