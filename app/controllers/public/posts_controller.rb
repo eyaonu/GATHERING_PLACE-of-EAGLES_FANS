@@ -15,29 +15,40 @@ class Public::PostsController < ApplicationController
   end
 
   def create
+    @user = current_user
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     if @post.save
       redirect_to post_path(@post.id)
 # '/top'
     else
-      render :new
+      @posts = Post.all
+        flash[:notice] = ' errors prohibited this obj from being saved:'
+      render :index
     end
   end
 
   def index
-    @posts = current_user.posts
-    # @posts = post.all 
+    @posts = Post.all 
+    @post = Post.new
   end
 
   def show
     @post = Post.find(params[:id])
     @post_tags = @post.post_tags
+    @post_comment = @post.post_comments.new
+    @user = @post.user
+    @post_new = Post.new
   end
 
   def edit
     @post = Post.find(params[:id])
+    if @post.user == current_user
     @post_tags = @post.post_tags
+      render :edit
+    else
+      redirect_to books_path
+    end
   end
 
   def update

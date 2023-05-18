@@ -12,7 +12,10 @@
   <%= link_to "コメント一覧", comment_posts_user_path(current_user), class: "nav-link fas fa-comment" %>
 </li>
 <li class="nav-item">
-  <%= link_to "ブックマーク", bookmark_posts_user_path(current_user), class: "nav-link fas fa-bookmark" %>
+  <%= link_to "ブックマーク", favorite_posts_user_path(current_user), class: "nav-link fas fa-bookmark" %>
+</li>
+<li class="nav-item">
+  <%#= link_to "検索", search_path, method: :, class: "nav-link fas fa-sign-out-alt" %>
 </li>
 <li class="nav-item">
   <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link fas fa-sign-out-alt" %>

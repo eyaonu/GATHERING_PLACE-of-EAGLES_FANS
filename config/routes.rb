@@ -16,8 +16,7 @@ Rails.application.routes.draw do
 scope module: :public do
     root to: 'homes#top'
     get '/about' =>'homes#about'
-    resources :comments, only: [:index, :create, :update, :destroy, :edit]
-    resources :bookmarks, only: [:index, :create, :update, :destroy] do
+    resources :favorite, only: [:index, :create, :update, :destroy] do
       collection do
         delete 'destroy_all'
       end
@@ -28,11 +27,14 @@ scope module: :public do
     patch 'users/withdraw'
     resources :users, only: [:create, :index, :update, :destroy, :show] do
       member do
-        get 'bookmark_posts'
+        get 'favorite_posts'
         get 'comment_posts'
+        get "search" => "searches#search"
       end
     end
-    resources :posts, only: [:new, :create, :index, :show, :edit, :update, :destroy]
+    resources :posts, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
+      resources :post_comments, only: [:create, :destroy]
+    end
   end
 
   namespace :admin do
