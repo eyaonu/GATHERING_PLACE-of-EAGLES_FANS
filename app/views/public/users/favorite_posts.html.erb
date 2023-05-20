@@ -1,7 +1,7 @@
-<h1>投稿一覧</h1>
-<div class= "row">
-<% @posts.each do |post| %>
-<div class= "col-md-3">
+<h1>ブックマーク一覧</h1>
+
+<% @favorite_posts.each do |post| %>
+
   <p>タイトル</p>
   <span>
     <%= link_to post.title, post_path(post.id) %>
@@ -11,6 +11,4 @@
   <span>
     <%= link_to post.body, post_path(post.id) %>
   </span>
-</div>
 <% end %>
-</div>

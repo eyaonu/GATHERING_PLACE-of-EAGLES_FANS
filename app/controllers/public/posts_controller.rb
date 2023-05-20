@@ -9,7 +9,6 @@ class Public::PostsController < ApplicationController
     @post = current_user.post
     @total = 0
     @post.each do |post| 
-      # tal = cart_item.item.non_taxed_price * cart_item.amount
 
     end
   end
@@ -72,6 +71,6 @@ class Public::PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :body)
+    params.require(:post).permit(:title, :body, tag_ids: [])
   end
 end

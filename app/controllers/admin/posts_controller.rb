@@ -2,11 +2,11 @@ class Admin::PostsController < ApplicationController
   before_action :authenticate_admin!
   
   def index
-    @post = Post.all
+    @posts = Post.all
   end
 
   def new
-    @item = Post.new
+    @post = Post.new
   end
 
   def create
@@ -20,7 +20,7 @@ class Admin::PostsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
+    @post = Post.find(params[:id])
   end
 
   def edit

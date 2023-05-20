@@ -5,11 +5,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :posts
-  has_many :post_comments
+  has_many :post_comments, dependent: :destroy
   has_many :comment_posts, through: :post_comments, source: :post
   has_many :bookmarks
   has_many :bookmark_posts, through: :bookmarks, source: :post
   has_many :favorites, dependent: :destroy
+  has_many :favorite_posts, through: :favorites, source: :post
 
   # validates :name, presence: true
   # validates :address, presence: true

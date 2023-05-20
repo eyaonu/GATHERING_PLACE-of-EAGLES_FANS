@@ -17,9 +17,9 @@ class Public::UsersController < ApplicationController
     end
   end
 
-  def bookmark_posts
+  def favorite_posts
     @user = User.find(params[:id])
-    @posts = @user.bookmark_posts
+    @favorite_posts = @user.favorite_posts
   end
 
   def comment_posts

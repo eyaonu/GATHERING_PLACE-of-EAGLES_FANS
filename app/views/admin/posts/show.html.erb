@@ -25,70 +25,30 @@
         </tr>
 
         <tr>
-          <td class="font-weight-bold"></td>
+          <td class="font-weight-bold">タイトル</td>
           <td>
-
+            <%= @post.title %>
           </td>
         </tr>
 
-        <tr><td class="font-weight-bold"></td><td><%= @order._i18n %></td></tr>
-
-        <tr><td></td><td></td></tr>
-
+        <tr>
+          <td class="font-weight-bold">本文</td>
+          <td>
+            <%= @post.body %>
+          </td>
+        </tr>
+      </table>
+      <table>
+  <% @post.post_comments.each do |comment| %>
+        <tr>
+          <td class="font-weight-bold">コメント</td>
+          <td>
+            <%= comment.comment %>
+          </td>
+<td><%= link_to "削除",admin_post_comment_path(comment.id), method: :delete %></td>
+        </tr>
+  <% end %>
       </table>
     </div>
   </div>
-
-  <div class="row">
-
-    <div class="col-md-8 offset-md-1">
-      <table class="table table-bordered">
-        <thead>
-            <tr>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-            </tr>
-        </thead>
-        <tbody>
-          <% sum = 0 %>
-          <% @order_items.each do |order_item| %>
-            <tr>
-              <td>
-                <!--order_item.item.name-->
-                <%= order_item.item.name %>
-              </td>
-
-              <td>
-                <!--unit_price-->
-                <%= order_item.unit_price %>
-              </td>
-
-              <td>
-                <!--quantity-->
-                <%= order_item.quantity %>
-              </td>
-
-              <td>
-                <!--= unit_price x quantity-->
-                <%= order_item.unit_price * order_item.quantity %>
-                <% sum += (order_item.unit_price * order_item.quantity) %>
-              </td>
-            </tr>
-
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-    <!--<div class="col">-->
-    <!--  <table class="table table-bordered">-->
-    <!--    <tr><td class="font-weight-bold">商品合計</td><td><%= sum.to_s(:delimited) %>円</td></tr>-->
-    <!--    <tr><td class="font-weight-bold">送料</td><td><%= @order.postage %>円</td></tr>-->
-    <!--    <tr><td class="font-weight-bold">請求金額合計</td><td class="font-weight-bold"><%= (@order.payment).to_s(:delimited) %>円</td></tr>-->
-    <!--  </table>-->
-    <!--</div>-->
   </div>
-
-</div>

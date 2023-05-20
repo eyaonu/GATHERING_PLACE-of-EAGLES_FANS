@@ -1,23 +1,31 @@
-<h1>User search</h1>
+<h1>投稿検索</h1>
 <% if user_signed_in? %>
   <div class="search_form">
-<%= form_with url: search_users_path, method: :get, local: true do |f| %>
-  <%= f.text_field :name, :word %>
+<%= form_with url: search_path, method: :get, local: true do |f| %>
+  <%= f.text_field :keyword %>
     <%= f.select :range, options_for_select([['KeyWord'], ['Tag']]) %>
     <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["前方一致","forward_match"],  ["後方一致","backward_match"], ["部分一致","partial_match"]]) %>
   <%= f.submit "検索", class: "btn btn-primary" %>
 <% end %>
+</div>
+<% if @posts.present? %>
+
 <table>
   <thead>
     <tr>
-      <th>Name</th>
+      <th>タイトル</th>
     </tr>
   </thead>
   <tbody>
-    <% @users.each do |user| %>
+    <% @posts.each do |post| %>
       <tr>
-        <td><%= user.name %></td>
+        <td><%= link_to post.title, post_path(post.id) %></td>
+
       </tr>
     <% end %>
   </tbody>
 </table>
+<% else %>
+検索結果はありませんでした。
+<% end %>
+<% end %>
