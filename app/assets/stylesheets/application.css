@@ -13,3 +13,22 @@
  *= require_tree .
  *= require_self
  */
+
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(to right, #ffe211 0%, #ffe211 50%, #0090d3 50%, #0090d3 100%), linear-gradient(to right, #ff1400 0%, #ff1400 50%, #00b441 50%, #00b441 100%);
+  background-size: 100% 50%;
+  background-position: center top, center bottom;
+  background-repeat: no-repeat;
+}
+
+a {
+    color:#0d1aad;
+    font-weight: bold;
+}
