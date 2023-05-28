@@ -2,12 +2,12 @@
 
 <% @favorite_posts.each do |post| %>
 
-  <p>タイトル</p>
+  <p class="col-md-2 mt-3 mb-1 bg-white">タイトル</p>
   <span>
     <%= link_to post.title, post_path(post.id) %>
   </span>
 
-  <p>本文</p>
+  <p class="col-md-2 mt-3 mb-1 bg-white">本文</p>
   <span>
     <%= link_to post.body, post_path(post.id) %>
   </span>

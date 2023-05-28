@@ -1,11 +1,11 @@
-<h2>タイトル</h2>
-<p><%= @post.title %></p>
+<h4>タイトル</h4>
+<p class="col-md-2 mt-1 mb-3 bg-white"><%= @post.title %></p>
 <% @post.tags.each do |tag| %>
 <%= tag.name %>
 <% end %>
 
-<h2>本文</h2>
-<p><%= @post.body %></p>
+<h4>本文</h4>
+<p class="col-md-2 mt-1 mb-3 bg-white"><%= @post.body %></p>
 
 <% if user_signed_in? %>
 <div>
@@ -33,7 +33,7 @@
 <%= link_to "編集", edit_post_path(@post.id) %>
 <%= link_to "削除", post_path(@post.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
 
-<h2>コメントをする<h2>
+<h4>コメントをする<h4>
 <%= form_with model: [@post, @post_comment] do |f| %>
   <%= f.text_area :comment, rows: '5', placeholder: "コメント記述欄" %>
   <%= f.hidden_field :post_id, value: @post.id %>
@@ -41,8 +41,8 @@
   <% end %>
 <% end %>
 
-<h2>コメント一覧</h2>
-  <p>コメント件数：<%= @post.post_comments.count %></p>
+<h4>コメント一覧</h4>
+  <p class="col-md-2 mt-1 mb-3 bg-white">コメント件数：<%= @post.post_comments.count %></p>
   <% @post.post_comments.each do |post_comment| %>
     <%#= post_comment.user.name %>
     <%#= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>

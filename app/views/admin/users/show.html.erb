@@ -1,9 +1,9 @@
 <!--会員詳細画面(admin)-->
-<div class="container">
+<div class="container mx-auto w-45 border rounded bg-white p-1">
 
   <div class="row">
     <div class="col-md-4 mt-5">
-      <h4 class="text-dark text-center title_bar"><%= @user.name %>さんの会員詳細</h4>
+      <h2 class="text-dark text-center title_bar"><%= @user.name %>様の会員詳細</h2>
     </div>
     <div class="col-md-1 mt-5"></div>
     <div class="col-md-5 mt-5"></div>
@@ -12,7 +12,7 @@
   <div class="row">
 
     <div class="col-md-10 offset-md-1">
-      <table class="table table-borderless">
+      <table class="table">
         <tr><td>会員ID</td><td><%= @user.id %></td></tr>
 
         <tr><td>氏名</td><td><%= @user.name %></td></tr>
