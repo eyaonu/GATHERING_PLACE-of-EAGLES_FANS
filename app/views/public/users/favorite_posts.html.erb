@@ -1,14 +1,19 @@
 <h1>ブックマーク一覧</h1>
-
+<div class= "row">
+<table class="table table-striped table-bordered bg-light">
 <% @favorite_posts.each do |post| %>
-
-  <p class="col-md-2 mt-3 mb-1 bg-white">タイトル</p>
+<tr class= "col-md-12">
+  <td class="col-md-3 mt-3 mb-1 bg-white">タイトル
   <span>
     <%= link_to post.title, post_path(post.id) %>
   </span>
-
-  <p class="col-md-2 mt-3 mb-1 bg-white">本文</p>
+  </td>
+  <td class="col-md-9 mt-3 mb-1 bg-white">本文
   <span>
     <%= link_to post.body, post_path(post.id) %>
   </span>
+  </td>
+</tr>
 <% end %>
+</table>
+</div>

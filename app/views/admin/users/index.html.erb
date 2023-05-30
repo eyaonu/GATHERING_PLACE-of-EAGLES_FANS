@@ -1,5 +1,5 @@
 <!--ユーザー一覧-->
-<div class="container mx-auto w-50 border rounded bg-white p-1">
+<div class="container border bg-white">
 
   <div class="row">
     <div class="col-md-6 mt-1">
@@ -8,9 +8,9 @@
     <div class="col-md-2 mt-1"></div>
   </div>
 
-<div class="row mt-2">
-  <div class="col-md-9 offset-md-1">
-    <table border="1">
+<div class="row">
+  <div class="col-md-12 offset-md-1">
+    <table class="table col-md-9" border="1">
       <thead>
         <tr>
           <th>会員ID</th>
@@ -22,35 +22,33 @@
 
 <tbody>
   <% @users.each do |user| %>
-    <tr>
-      <td>
+    <tr class="col-md-12">
+      <td class="col-md-3">
         <!--id-->
         <%= user.id %>
       </td>
 
-      <td>
+      <td class="col-md-3">
         <!--name-->
         <%= link_to admin_user_path(user.id) do %>
           <%= user.name %>
         <% end %>
       </td>
-      <td>
+      <td class="col-md-3">
         <!--email-->
         <%= user.email %>
       </td>
 
-      <td>
+      <td class="col-md-3">
         <!--is_deleted-->
         <% if user.is_deleted == false %>
-          <p class="text-success font-weight-bold">有効</p>
+          <span class="text-success font-weight-bold">有効</span>
         <% else %>
-          <p class="text-secondary font-weight-bold">退会</p>
+          <span class="text-secondary font-weight-bold">退会</span>
         <% end %>
       </td>
-
     </tr>
   <% end %>
-
 </tbody>
     </table>
 
